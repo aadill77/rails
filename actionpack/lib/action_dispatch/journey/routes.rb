@@ -55,7 +55,7 @@ module ActionDispatch
 
       def simulator
         @simulator ||= begin
-          gtg = GTG::Builder.new(ast).transition_table
+          gtg = GTG::Builder.new(ast).transition_table unless ast.blank?
           GTG::Simulator.new(gtg)
         end
       end
